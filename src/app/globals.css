@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Leaflet CSS */
+@import "leaflet/dist/leaflet.css";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background-color: #0f1117;
+}
+
+/* Override Leaflet dark tile layer attribution */
+.leaflet-container {
+  background: #1a1d27;
+}
+
+/* Sonar/ping animation rings */
+@keyframes sonar-ring {
+  0% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.sonar-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(239, 68, 68, 0.8);
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.sonar-ring-1 {
+  animation: sonar-ring 2.4s ease-out infinite;
+}
+
+.sonar-ring-2 {
+  animation: sonar-ring 2.4s ease-out infinite 0.8s;
+}
+
+.sonar-ring-3 {
+  animation: sonar-ring 2.4s ease-out infinite 1.6s;
+}
+
+/* Red pulsing dot in header */
+@keyframes pulse-dot {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(239, 68, 68, 0);
+    opacity: 0.85;
+  }
+}
+
+.pulse-dot {
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+/* Dark map tiles for CartoDBDark */
+.leaflet-tile-container img {
+  filter: brightness(0.85) saturate(0.7);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1d27;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 2px;
+}
