@@ -86,11 +86,10 @@ export default function TrackerMap() {
       style={{ width: "100%", height: "100%" }}
       attributionControl={false}
     >
-      {/* Dark CartoDB tile layer — no API key required */}
+      {/* ESRI World Imagery satellite tiles — no API key required */}
       <TileLayer
-        url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-        subdomains="abcd"
-        maxZoom={20}
+        url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+        maxZoom={19}
       />
       <AccuracyCircle />
       <Marker position={[LAT, LNG]} icon={sonarIcon} />
